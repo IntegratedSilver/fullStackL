@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.data;
 using api.models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SQLitePCL;
 
 namespace api.controllers
 {
@@ -36,5 +38,63 @@ namespace api.controllers
             }
             return BadRequest();
         }
+
+         [HttpDelete ("{id:int}")]
+    public async Task<IActionResult> Delete(int id){
+        var student = await _context.Students.FindAsync(id);
+        if(student == null){
+            return NotFound();
+        }
+
+        _context.Remove(student);
+
+           var result = await _context.SaveChangesAsync();
+
+           if(result > 0){
+            return Ok("Student was deleted");
+           }
+        return BadRequest ("unable to delete student");
+
+
     }
+
+     [HttpGet("{id:int}")]
+
+     public async Task<ActionResult<Student>> GetStudent(int id){
+        var student = await _context.Students.FindAsync(id);
+        if(student == null){
+            return NotFound("Sorry, student was not found");
+        }
+        return Ok(student);
+     }
+     [HttpPut ("{id:int}")]
+     public async Task<IActionResult> EditStudent (int id, Student student){
+        var studentFromDb = await _context.Students.FindAsync(id);
+
+        if(studentFromDb == null){
+            return BadRequest ("Student not found");
+        }
+
+        studentFromDb.Name = student.Name;
+        studentFromDb.Email = student.Email;
+        studentFromDb.Address = student.Address;
+        studentFromDb.PhoneNumber = student.PhoneNumber;
+
+        var result = await _context.SaveChangesAsync();
+
+        if(result > 0){
+            return Ok("Student was edited");
+        }
+        return BadRequest("Unable to update data");
+     }
+
+
+
+
+
+
+
+
+    }
+
 }
