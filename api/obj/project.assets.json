@@ -3027,11 +3027,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\api.csproj",
+      "projectUniqueName": "C:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "c:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\api.csproj",
+      "projectPath": "C:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\api.csproj",
       "packagesPath": "C:\\Users\\silve\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\obj\\",
+      "outputPath": "C:\\Users\\silve\\Documents\\Academy Full Stack\\fullStackL\\api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\silve\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3105,7 +3105,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
